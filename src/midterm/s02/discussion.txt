@@ -1,0 +1,79 @@
+- markov model
+    - mathematical framework used to describe systems that transition from state to another with a certain probability
+        - markov property
+            - asserts that the future state of a process depends only on its current state not on the sequence of events that preceded it
+    -- state
+        - represent the different possible conditions or situations in which a system can be
+    -- transition probabilities
+        - probabilities of moving from one state to another
+    -- transition matrix
+        - matrix that represents the transition probabilities between all pairs of state
+    
+    - example: weather prediction
+        - states
+            - sunny, rainy, cloudy
+        - transition probabilities
+            - sunny -> rainy
+            - cloudy -> sunny
+            - rainy -> cloudy
+        - transition matrix
+            - P(i, j)
+
+            - sunny(s), rainy(r), cloudy(c)
+                - from sunny(s)
+                    - to sunny(s) - 0.7
+                        - there will a 70% chance it will sunny tomorrow
+                    - to rainy(r) - 0.2
+                        - there will a 20% chance it will rain
+                    - to cloud(c) - 0.1
+                        - there will a 10% it will be cloudy
+                - from rainy(r)
+                    - to sunny(s) - 0.3
+                    - to rainy(r) - 0.4
+                    - to cloudy(c) - 0.3
+                - from cloudy(c)
+                    - to sunny(s) - 0.4
+                    - to rainy(r) - 0.3
+                    - to cloudy(c) - 0.3
+
+                    [P(s->s), P(s->r), P(s->c)
+                     P(r->s), P(r->r), P(r->c)
+                     P(c->s), P(c->r), P(c->c)]
+                    
+                    p = [0.7 0.2 0.1
+                         0.3 0.4 0.3
+                         0.4 0.3 0.3]
+                    
+                    - line(sunny)
+                        - 70% chance of staying sunny
+                        - 20% chance of transitioning to rainy
+                        - 10% chance of transitioning to cloudy
+                    - line(rainy)
+                        - 30% chance of transitioning to sunny
+                        - 40% chance of staying rainy
+                        - 10% chance of transitioning to cloudy
+                    - line(cloudy)
+                        - 40% chance of transitioning to sunny
+                        - 30% chance of transitioning to rainy
+                        - 30% chance of staying cloudy
+- bayes theorem
+    - fundamental concept in probability theory and statistics that describe how to update the probability of a hypothesis based on new evidence
+
+    - Event A
+        - a person has a disease
+    - Event B
+        - a person tests positive for the disease
+    - Hypothesis
+        - to find the probability that a person has a disease given that they tested positive
+    - Probable values:
+        - prevalence of the disease (prior probability) - 0.01 (1%)
+        - probability of testing positive given the disease (likehood) - 95%
+        - probability of testing positive without the disease (false positive rate) - 5%
+
+        P(B) - Probability of testing positive(marginal likelihood)
+        P(B) = B(B | A). P(A) + P(B | -A). P(-A)
+             = (0.95 x 0.01) + (0.05 x 0.99)
+             = 0.059
+
+        P(A|B)= 0.95 x 0.01/P(B)
+              = 0.16
