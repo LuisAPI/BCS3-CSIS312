@@ -1,0 +1,93 @@
+[SECTION]: TRAINING DATA
+
+- Learning Objectives
+    - define training data and its importance in NLP
+    - understand the process of collecting and preparing data for NLP models
+    - explore different training set data sets
+    - identify challenges related to training data in NLP
+    - apply best practices
+
+- Preparing an NLP
+    - high quality training data
+        - ensuring that the quality is not compromised
+
+- Training Data
+    - is a type of data used for teaching new application, model or system to begin recognizing patters dependant on a project's requirements
+    -- (in AI or ML) is slightly different, as they are labeled or annotated
+
+    -- to find relationships, develop understanding, make decisions and evaluate their confidence when making a prediction
+
+--- the better the training data, the better the model performs
+
+- Types of annotations in NLP
+    - utterances
+        - refers to the smallest unit of speech or text that a speaker produces as a complete thought, typically separated by pauses in spoken language or punctuation in written.
+
+        - for example:
+            Can I have pizza?
+            How is the weather in Dasma?
+                -- these sentences represents single utterance
+
+    - spoken language analysis
+    - understanding customer reviews
+        -- to properly breakdown or parse the input data into utterances
+
+        The food was great | but | the service was slow. | I enjoyed the ambiance, | but | the waiter was not attentive |
+
+        - this review covers the multiple ideas or utterances:
+        - individual utterances
+            - represents a distinct thought or sentiment
+                - the food was great
+                - the service was slow
+                - I enjoyed the ambiance
+                - the waiter was not attentive
+            - parsing utterances
+                - it help us ensures that each thought is analyzed separately more accurate insights from the text
+        
+        - Steps in Utterance Parsing for NLP tasks:
+            - identify pauses or breaks
+                - (in spoken language) pauses
+                - (in written language) punctuation(. , ?) or conjunctions(but, and, or)
+            - splitting text in utterances
+                - use punctuation or logical breaks to split a sentence
+                - to get individual utterance, each sentence can be treated as separate utterance if it expresses a complete idea
+            - preprocessing for Machine Learning
+                - tokenization is used to split text into words
+                - stemming, removing stop words
+                - analyzed the utterances separately for tasks like sentiment analysis, intent detection or topic modeling
+
+        - Review:
+        "The laptop is fast and efficient, but the battery life is terrible. I like the design but it is too heavy to carry around"
+
+            - Parsed Utterances
+                - the laptop is fast and efficient,
+                - but the battery life is terrible.
+                - I like the design but
+                - it is too heavy to carry around.
+            - Splitting Text
+                - the laptop is fast and efficient
+                - the battery life is terrible
+                - I like the design
+                - it is too heavy to carry around
+            - Analyzed individually
+                - sentiment
+                    - identify the utterances:
+                        - positive
+                        - negative
+                        - neutral
+                - intent
+                    - feature appreciation
+                    - feature disappointment
+            - customer review -> specific aspects
+                - design
+                - speed
+                - battery life
+                
+
+Mini-Activity
+Create a sentiment analysis using Twitter data through hands-on experience with data collection, preprocessing, model training, and visualization.
+
+By the end of this activity, you should be able to explain the process and interpret the results effectively.
+
+    - intent
+    - entity
