@@ -1,0 +1,115 @@
+[Classical Approach]
+    - Text Processing
+        - regular expression
+            - how to write the regular expression
+            - properties of regular expression
+            - email extraction using RE
+        - tokenization
+            - white tokenization
+            - dictionary based tokenization
+            - rule-based tokenization --
+            * regular expression tokenization
+            - spacy tokenizer
+            - tokenization with textblob
+        - lemmatization
+        - stemming
+        - stopwords
+[Regular Expression]
+    - regular expression
+        - is a sequence of characters that define a search pattern
+        - rational expression
+            - to find, to match and to manipulate text
+        - this is allow us for 'pattern-based matching' which can be applied to search a string, extract data and perform complex text manipulations
+
+    matching rules:
+        - regex syntax
+            - literal characters
+                - matches exact characters
+                    - ex. abc matches 'abc'
+            - metacharacters
+                - special symbols with specific meanings:
+                    - . : matches any single character at the start of the string
+                        : wildcard character
+                    - ? : optional
+                        docx?
+                        'doc' 'docx'
+                    - ^ : anchors the match at the start of the string
+                        ^\d{3} will match with pattern like '901'
+                        901 - 333 -
+                    - $ : anchors the match at the end of the string
+                        -\d{3}$ will match with patterns like '-901'
+                        - 901 - 333
+                    - [] : character set, matches any character inside the bracket
+                    - | : logical OR for alternative matches
+                    - \ : escapes special characters or introduces special sequences
+            - repeaters(*, + abd {})
+                - these symbols act as repeaters and tell the computer that the preceding character is to be used for more than just one time
+                    * : it tells the computer to match preceding character (or set or characters) for 0 or more time
+
+                    ab*c - ac, abc, abbc, abbbc, aaabc
+
+                    + : it tells the computer to repeat the preceding character at least once or more times
+
+                    ab+c - abc, abbc, abbbc
+
+                    {} : it tells the computer to repeat the preceding character for as many times as the values inside this bracket
+                    {2}
+
+
+        - character classes
+            - it defines set of characters to match
+                - \s : it matches any whitespace character such as space and tab
+                - \S : it matches any non-whitespace character
+                - \d : it matches any digit character
+                - \D : it matches any non-digit characters
+                - \w : it matches any word character
+                - \W : it matches any non-word character
+                - \b : it matches any word boundary
+                - ex
+                    [abc] - it matches any character a, b, c
+                    ^setOfCharacters - Negation
+                    [^abc] - it matches any character except a, b, c
+                    first-last character range
+                    [a-zA-Z] - it will match any chaacter from a to z or A to Z
+
+                    2 + 2
+                    \d+[\+-x\*]\d+
+                    10 - 1
+                    7 * 6
+
+                    ([A-Z]\w+)
+                    John
+                    Apple
+                    Test_case
+                    Variable123
+
+                    non matches
+                        john
+                        123Apple
+
+- re.split()
+    - purpose
+        - used to split a string into a list based on specified pattern
+
+    - functionality
+        - it allows us to take regex and the string you want to split
+
+        text = "one, two; three four"
+        result = re.split(r'[,\s;]', text)
+        print(result)
+        #output
+        ['one', 'two', 'three', 'four']
+        -- the string split at commas, spaces or semicolons
+- re.sub()
+    - purpose
+        - it allows us to replace occurences of a pattern in a string with a specified replacement string
+    - functionality
+        - it allows us to take regex patterns the replacement string and the original string
+            - it returns a new string with the replacements made
+
+        text = "one, two; three four"
+        result = re.sub(r'[,\s;]', '-', text)
+        print(result)
+        #output
+        'one-two-three-four'
+        -- the commas, spaces and semicolons are replaced with hypens
