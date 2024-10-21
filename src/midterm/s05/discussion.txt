@@ -1,0 +1,74 @@
+[SESSION]: WORD SENSE DISAMBIGUATION (WSD)
+Lesson Outcomes:
+    - understand the concept of WSD and its importance to NLP
+    - differentiate between the knowledge-based, supervised and unsupervised approaches
+    - practice using python libraries(NLTK, WordNet) for basic WSD
+    - discuss the significance of WSD in applications like search engines, translation systems and digital assistants
+    - develop a simple WSD model and test its performance using provided dataset
+
+Polysemy
+    - it refers to words that have multiple meanings. These meanings can vary based on the context in which the word is used.
+
+'bank' can refer to:
+    - a financial institution
+        - I deposited money in the bank
+    - the side of the river
+        - We sat a on the river bank and watched the waterflow
+
+Word Sense Disambiguation (WSD)
+    - is the task of identifying which meaning (for sense) of a word is intended in a given context, this is important task in NLP because it significantly impacts the performance of different application such as:
+        - machine translation
+            - translating the correct sense of words is essential to avoid confusion
+            - example:
+                - time flies (literal or metaphorical)
+        - information retrieval
+            - search engines rely on WSD to provide accurate results for ambiguous terms
+        - speech recognition
+            - systems like Alexa or Siri need to understand ambiguous phrases correctly
+
+Importance of WSD in NLP
+    WSD plays a key role in several NLP tasks. including:
+        - text classification
+            - determines the sentiment or topic of a document requires understanding the context of ambiguous words
+        - information extraction
+            - system must extract relevant information and ignore irrelevant sense of a word
+        - machine translation
+            - choose the correct sense to ensure accurate translation across languages
+
+Note: without the WSD, many NLP tasks can suffer in performance due to misinterpretation of words with multiple meanings
+
+II. Approaches to Word Sense Disambiguation
+    - knowledge-based methods
+        - it relies on pre-existing lexical resources like WordNet
+            - WordNet
+                - a large lexical database of English that groups words into sets of synonyms and provides short definitions for each set
+            - Lesk Algorithm
+                - it allows to disambiguates a word by comparing the definitions of all possible senses of the word with the words in the context.
+                --- the sense whose definition has the most overlap with the surrounding words is chosen
+        
+        
+        - Lesk Algo
+            - sentence: The bank on the river was overgrown with weeds
+                - word sense: 'bank'
+                    - financial institution
+                        - a financial establishment for holding and managing money
+                    - riverbank
+                        - the sloping ground along the edge of a river
+                - overlap of words in the context with the definitions indicates that the "riverbank" sense is the most appropriate
+        
+        - supervised learning approaches
+            - in supervised approaches, labeled training data is used to train machine learning models to learn the correct sense of a word given the context
+            - steps:
+                - create a labeled dataset with words and their correct senses
+                - training classifiers
+                        - Naive Bayes
+                        - Support Vector Machine
+                - using these models to predict the sense of ambiguous words in new sentences
+            - challenges:
+                - requires large amounts of manually labeled data, which can be difficult to obtain
+                - new words and senses may not be covered by the training data
+        
+        - unsupervised learning approaches
+            - the unsupervised methods do not require labeled data. Instead,they attempt to discover word senses by clustering occurences of words based on their context
+            - Latent Semantic Analysis (LSA)
+                - is a technique that reduces the dimensionality of word vectors to uncover hidden patterns and group similar contexts
